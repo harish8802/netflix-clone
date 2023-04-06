@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background: url("./assets/img/background.jpg") no-repeat center center fixed; 
+    background: url("assets/img/background.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -53,13 +53,13 @@ body{
     margin-bottom: 20px;
 }
 
-.container-login form{
+.container-login div{
     display: flex;
     flex-direction: column;
     border-radius: 4px;
 }
 
-.container-login form input{
+.container-login div input{
     background-color: #333;   
     color: var(--white);
     border: none;
@@ -71,11 +71,11 @@ body{
     margin-bottom: 10px;
 }
 
-.container-login form input::placeholder{
+.container-login div input::placeholder{
     color: gray;
 }
 
-.container-login form button{
+.container-login div button{
     margin-top: 20px;
     height: 50px;
     cursor: pointer;
