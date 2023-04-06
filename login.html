@@ -20,19 +20,16 @@
         <div class="container-login">
             <h1>Sign in</h1>
 
-            <form action="">
+            <div class="">
 
-                <input type="text" placeholder="Email or phone number">
-                <input type="password" placeholder="password">
+                <input type="text" id="email" placeholder="Email or phone number">
+                <input type="password" id="password"  placeholder="password">
 
-                <button type="submit" id="btn">Sign in</button>
-            </form>
+                <button type="submit" id="login">Sign in</button>
+            </div>
 
             <div class="help">
-                <div>
-                    <input type="radio" id="me">
-                    <label for="me">Remember me</label>
-                </div>
+               
                     
                 <a href="">Need help?</a>
             </div>
@@ -40,7 +37,7 @@
             <a href="" class="facebook"><img src="./assets/img/facebook.png" class="icon"/>Login with Facebook</a>
 
             <div class="connect">
-                <p>New to Netflix? <span id="span01">Sign up now.</span>.</p>
+                <p>New to Netflix? <span id="span01"><a href="signup.html"> Sign up now.</a></span>.</p>
                 <p>This page is protected by Google reCAPTCHA to ensure you're not a bot.
                    <span id="span02"> Learn more.</span></p>
             </div>
@@ -67,14 +64,49 @@
             </div>
         </footer>
     </div>
-    <script type="text/javascript">
-        let btn= document.querySelector('#btn');
-        btn.addEventListener('click', enter);
-        
-        function enter(e){
-            e.preventDefault();
-            window.location.href = "user.html";
-        }
-    </script>
+    
 </body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCWu0lH6vT09kG1-RbSrpez1xk4ko-GNME",
+      authDomain: "authentication-app-949c1.firebaseapp.com",
+      databaseURL: "https://authentication-app-949c1-default-rtdb.firebaseio.com",
+      projectId: "authentication-app-949c1",
+      storageBucket: "authentication-app-949c1.appspot.com",
+      messagingSenderId: "958763297183",
+      appId: "1:958763297183:web:7b3cdc88b0c5d831d0b5aa"
+    };
+  
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth();
+
+
+
+login.addEventListener('click', (e) => {
+    var email=document.getElementById('email').value;
+    var password=document.getElementById('password').value;
+
+signInWithEmailAndPassword(auth, email, password)
+.then((userCredential) => {
+const user = userCredential.user;
+
+
+window.location.href = "user.html";
+})
+.catch((error) => {
+const errorCode = error.code;
+const errorMessage = error.message;
+alert(errorMessage);
+});
+});
+</script>
 </html>
