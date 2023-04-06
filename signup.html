@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/img/netflix-icon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="login.css">
+    <title>Netflix-clone</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img src="./assets/img/logo.png" alt="Logo">
+        </header>
+
+        <div class="container-login">
+            <h1>Sign UP</h1>
+
+            <div class="">
+                <input type="text"id="username" name="username" placeholder="username">
+                <input type="text" id="email" name="email"placeholder="Email">
+                <input type="password" id="password"name="password" placeholder="password">
+
+                <button type="submit" id="signup">Sign Up</button>
+            </div>
+
+            
+
+            <div class="help">
+                    
+                <a href="">Need help?</a>
+            </div>
+
+            <a href="" class="facebook"><img src="./assets/img/facebook.png" class="icon"/>Login with Facebook</a>
+
+            <div class="connect">
+               <span id="span01"><a href="login.html">Sign in now.</a></span>
+                <p>This page is protected by Google reCAPTCHA to ensure you're not a bot.
+                   <span id="span02"> Learn more.</span></p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container-footer">
+                <p> Questions? <a href="">Call 1-844-542-4813</a></p>
+    
+                <div class="list">
+                    <ul>
+                        <li><a href="">FAQ</a></li>
+                        <li><a href="">Help Center</a></li>
+                        <li><a href="">Terms of Use</a></li>
+                        <li><a href="">Corporate information</a></li>
+                        <li><a href="">Privacy</a></li>
+                        <li><a href="">Cookie Preferences</a></li>
+                    </ul>
+                </div>
+    
+               
+            </div>
+        </footer>
+    </div>
+   
+    <!-- <script type="text/javascript">
+        let btn= document.querySelector('#btn');
+        btn.addEventListener('click', enter);
+        
+        function enter(e){
+            e.preventDefault();
+            window.location.href = "user.html";
+        }
+    </script> -->
+  
+</body>
+  
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCWu0lH6vT09kG1-RbSrpez1xk4ko-GNME",
+      authDomain: "authentication-app-949c1.firebaseapp.com",
+      databaseURL: "https://authentication-app-949c1-default-rtdb.firebaseio.com",
+      projectId: "authentication-app-949c1",
+      storageBucket: "authentication-app-949c1.appspot.com",
+      messagingSenderId: "958763297183",
+      appId: "1:958763297183:web:7b3cdc88b0c5d831d0b5aa"
+    };
+  
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth();
+
+signup.addEventListener('click', (e) => {
+var email=document.getElementById('email').value;
+var password=document.getElementById('password').value;
+var username=document.getElementById('username').value;
+createUserWithEmailAndPassword(auth, email, password)
+.then((userCredential) => {
+const user = userCredential.user;
+alert('User Created');
+window.location.href = "user.html";
+    
+})
+.catch((error) => {
+const errorCode = error.code;
+const errorMessage = error.message;
+
+alert(errorMessage);
+});
+});
+</script>
+</html>
